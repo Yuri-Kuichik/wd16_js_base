@@ -12,8 +12,9 @@
   <body>
     <div id="app">
       <header>
-        <div class="container header-section">
+        <div class="container header-section d-flex_jcsb">
           <image class="header-section__logo" src="./src/images/logo.png" />
+          <div class="header-section__user user-name">KD</div>
         </div>
       </header>
 
@@ -23,6 +24,33 @@
 
           <section class="home-page visible">
             <h2 class="tac">Home page</h2>
+
+            <div id="list-posts"></div>
+
+            <div class="change-name-wrapper mb-6">
+              <button>Изменить имя пользователя</button>
+            </div>
+            
+            
+            <!-- start calculator --> 
+            <div class="calculator">
+              <h2>Calculator</h2>
+              <input id="firstValue" type="text" value="123" class="mb-3">
+              <div class="d-flex mb-3">
+                <button class="mr-1"> + </button>
+                <button class="mr-1"> - </button>
+                <button class="mr-1"> / </button>
+                <button class="mr-1"> * </button>
+              </div>
+              <input id="secondValue" type="text" value="111" class="mb-3">
+              <h3> Result:
+                <span class="calculator__result">
+                  <!-- здесь показывать результат вычисления -->
+                </span>
+              </h3>
+            </div>
+            <!-- end calculator --> 
+
           </section>
         </main>
       </div>
@@ -37,7 +65,10 @@
 
     <script>
       // My JS code will be here
+      let str = 'my str'
+      console.log(str)
     </script>
 
+    <script src="index.js"></script>
   </body>
 </html>
