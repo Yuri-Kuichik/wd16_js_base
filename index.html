@@ -28,7 +28,7 @@
             <div id="list-posts"></div>
 
             <div class="change-name-wrapper mb-6">
-              <button>Изменить имя пользователя</button>
+              <button onclick="changeUserData()">Изменить имя пользователя</button>
             </div>
             
             
@@ -37,10 +37,10 @@
               <h2>Calculator</h2>
               <input id="firstValue" type="text" value="123" class="mb-3">
               <div class="d-flex mb-3">
-                <button class="mr-1"> + </button>
-                <button class="mr-1"> - </button>
-                <button class="mr-1"> / </button>
-                <button class="mr-1"> * </button>
+                <button class="mr-1" onclick="findResult('+')"> + </button>
+                <button class="mr-1" onclick="findResult('-')"> - </button>
+                <button class="mr-1" onclick="findResult('/')"> / </button>
+                <button class="mr-1" onclick="findResult('*')"> * </button>
               </div>
               <input id="secondValue" type="text" value="111" class="mb-3">
               <h3> Result:
@@ -70,5 +70,7 @@
     </script>
 
     <script src="index.js"></script>
+    <script src="03-functions/index.js"></script>
+    <script src="03-functions/calculator.js"></script>
   </body>
 </html>
