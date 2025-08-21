@@ -25,12 +25,11 @@
           <section class="home-page visible">
             <h2 class="tac">Home page</h2>
 
-            <div id="list-posts"></div>
-
-            <div class="change-name-wrapper mb-6">
+            <div class="mb-6">
               <button>Изменить имя пользователя</button>
             </div>
-            
+
+            <div class="border-section"></div>
             
             <!-- start calculator --> 
             <div class="calculator">
@@ -51,6 +50,27 @@
             </div>
             <!-- end calculator --> 
 
+            <div class="border-section"></div>
+
+            <!-- start todo list --> 
+            <div class="todo-list">
+              <h2>Todo list</h2>
+            </div>
+
+            <template id="todo-item">
+              <div class="todo-list__item d-flex d-flex_aic">
+                <input type="checkbox" class="todo-list__checkbox">
+                <div class="todo-list__text d-flex">Text</div>
+                <button class="todo-list__edit" onclick="editTask(event)">
+                  <img src="./src/images/edit-icon.svg" alt="">
+                </button>
+                <button class="todo-list__delete" onclick="deleteTask(event)">
+                  <img src="./src/images/delete-icon.svg" alt="">
+                </button>
+              </div>
+            </template>
+            <!-- end todo list -->
+
           </section>
         </main>
       </div>
@@ -62,12 +82,6 @@
         </div>
       </footer>
     </div>
-
-    <script>
-      // My JS code will be here
-      let str = 'my str'
-      console.log(str)
-    </script>
 
     <script src="index.js"></script>
   </body>
