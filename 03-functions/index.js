@@ -20,6 +20,6 @@ function ask(question) {
     if(answer) {
         return answer;
     } else {
-        ask(question);
+        return ask(question);
     }
 }
