@@ -175,7 +175,11 @@ input:focus-visible {
   display: none !important;
 }
 
-.change-name-wrapper {
+.border-section {
   border-bottom: solid 1px #000;
-  padding: 24px 0;
+  margin: 12px 0;
+}
+
+.todo-list__item {
+  gap: 8px;
 }
