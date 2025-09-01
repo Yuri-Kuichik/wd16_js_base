@@ -23,14 +23,14 @@ function findResult(operator) {
             break;
     }
 
-    result = isDigit(result);
-    // result = isValidNumber(result);
+    result = getDigit(result);
+    // result = getValidNumber(result);
 
     document.querySelector(".calculator__result").innerText = result;
 }
 
 // Проверка на "все что не является цифрой"
-function isDigit(data) {
+function getDigit(data) {
     if(data < 0 || data > 9 || data.toString().length !== 1) {
         return 0;
     } else {
@@ -39,7 +39,7 @@ function isDigit(data) {
 }
 
 // Проверка на всё, что не является числом
-function isValidNumber(data) {
+function getValidNumber(data) {
     if(typeof(data) !== 'number' || isNaN(data) || !isFinite(data)) {
         return 0;
     } else {
