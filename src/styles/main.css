@@ -174,3 +174,12 @@ input:focus-visible {
 .hidden {
   display: none !important;
 }
+
+.border-section {
+  border-bottom: solid 1px #000;
+  margin: 12px 0;
+}
+
+.todo-list__item {
+  gap: 8px;
+}

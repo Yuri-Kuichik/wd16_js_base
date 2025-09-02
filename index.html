@@ -12,8 +12,14 @@
   <body>
     <div id="app">
       <header>
-        <div class="container header-section">
+        <div class="container header-section d-flex_jcsb">
           <image class="header-section__logo" src="./src/images/logo.png" />
+          <nav class="navigation" onclick="switchTab(event)">
+            <span id="home-page" class="link-page">Change name</span>
+            <span id="calculator-page" class="link-page">Calculator</span>
+            <span id="todo-list-page" class="link-page">Todo list</span>
+          </nav>
+          <div class="header-section__user user-name">KD</div>
         </div>
       </header>
 
@@ -21,9 +27,68 @@
         <main class="container">
           <h1 class="title">Введение в JavaScript</h1>
 
+          <!-- start home page -->
           <section class="home-page visible">
             <h2 class="tac">Home page</h2>
+
+            <div id="list-posts"></div>
+
+            <div class="change-name-wrapper mb-6">
+              <button onclick="changeUserData()">Изменить имя пользователя</button>
+            </div>
           </section>
+          <!-- end home page -->
+
+          <!-- start calculator -->
+          <section class="calculator-page hidden">
+            <div class="calculator">
+              <h2>Calculator</h2>
+              <input id="firstValue" type="text" value="123" class="mb-3">
+              <div class="d-flex mb-3">
+                <button class="mr-1" onclick="findResult('+')"> + </button>
+                <button class="mr-1" onclick="findResult('-')"> - </button>
+                <button class="mr-1" onclick="findResult('/')"> / </button>
+                <button class="mr-1" onclick="findResult('*')"> * </button>
+              </div>
+              <input id="secondValue" type="text" value="111" class="mb-3">
+              <h3> Result:
+                <span class="calculator__result">
+                  <!-- здесь показывать результат вычисления -->
+                </span>
+              </h3>
+            </div>
+          </section>
+            <!-- end calculator -->
+
+          <!-- start todo list -->
+          <section class="todo-list-page hidden">
+            <div class="todo-list">
+              <h2>Todo list</h2>
+            </div>
+
+            <div class="btn">
+              <button onclick="addNewTask()">Add task</button>
+            </div>
+
+            <div class="container todo-list-wrap">
+
+            </div>
+
+            <template id="todo-item">
+              <div class="todo-list__item d-flex d-flex_aic">
+                <input type="checkbox" class="todo-list__checkbox">
+                <div class="todo-list__text d-flex">Text</div>
+                <button class="todo-list__edit" onclick="editTask(event)">
+                  <img src="./src/images/edit-icon.svg" alt="">
+                </button>
+                <button class="todo-list__delete" onclick="deleteTask(event)">
+                  <img src="./src/images/delete-icon.svg" alt="">
+                </button>
+              </div>
+            </template>
+          </section>
+          <!-- end todo list -->
+
         </main>
       </div>
 
@@ -35,10 +100,10 @@
       </footer>
     </div>
 
-    <script>
-      // My JS code will be here
-    </script>
+    <script src="index.js"></script>
     <script src="02-basics/script.js"></script>
-
+    <script src="03-functions/index.js"></script>
+    <script src="03-functions/calculator.js"></script>
+    <script src="04-arrays/todo-list.js"></script>
   </body>
 </html>
