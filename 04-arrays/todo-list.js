@@ -1,6 +1,4 @@
 function renderTodoList() {
-    // находим шаблон в html (template)
-    const todoTpl = document.getElementById('todo-item');
 
     // находим контейнер в который будем добавлять шаблоны
     const todoItemsContainer = document.querySelector('.todo-list-wrap');
@@ -22,8 +20,8 @@ function renderTodoList() {
             return
         }
 
-        // Клонируем содержимое тега <template> в переменную
-        let todoItem = todoTpl.content.cloneNode(true);
+        // Создаём html шаблон будущего элемента списка задач.
+        let todoItem = todoItemTpl();
 
         // Находим чекбокс и ставим активен ли он в зависимости от статуса задачи (completed)
         let currentCheckbox = todoItem.querySelector('.todo-list__checkbox');
@@ -152,6 +150,45 @@ function findItemByTaskId(items, id) {
         return item.id === id;
     })
 }
+
+// Подготавливаем шаблон taskItem при помощи js
+function todoItemTpl() {
+    // Создаём элементы
+    let todoListItem = document.createElement('div');
+    todoListItem.className = 'todo-list__item d-flex d-flex_aic';
+
+    let todoListCheckbox = document.createElement('input');
+    todoListCheckbox.className = 'todo-list__checkbox';
+    todoListCheckbox.type = 'checkbox';
+
+    let todoListText = document.createElement('div');
+    todoListText.className = 'todo-list__text d-flex';
+
+    let todoListEdit = document.createElement('button');
+    todoListEdit.className = 'todo-list__edit';
+
+    let todoListEditImg = document.createElement('img');
+    todoListEditImg.src = './src/images/edit-icon.svg';
+    todoListEditImg.alt = 'Изменить';
+
+    let todoListDelete = document.createElement('button');
+    todoListDelete.className = 'todo-list__delete';
+
+    let todoListDeleteImg = document.createElement('img');
+    todoListDeleteImg.src = './src/images/delete-icon.svg';
+    todoListDeleteImg.alt = 'Удалить';
+
+    // Верстаем шаблон
+    todoListItem.appendChild(todoListCheckbox);
+    todoListItem.appendChild(todoListText);
+    todoListItem.appendChild(todoListEdit);
+    todoListEdit.appendChild(todoListEditImg);
+    todoListItem.appendChild(todoListDelete);
+    todoListDelete.appendChild(todoListDeleteImg);
+
+    return todoListItem;
+}
+
 
 if (getTodoListData()?.length) {
     renderTodoList()
