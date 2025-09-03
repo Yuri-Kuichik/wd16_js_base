@@ -21,7 +21,7 @@ function renderTodoList() {
         }
 
         // Создаём html шаблон будущего элемента списка задач.
-        let todoItem = todoItemTpl();
+        let todoItem = getListItem();
 
         // Находим чекбокс и ставим активен ли он в зависимости от статуса задачи (completed)
         let currentCheckbox = todoItem.querySelector('.todo-list__checkbox');
@@ -152,7 +152,7 @@ function findItemByTaskId(items, id) {
 }
 
 // Подготавливаем шаблон taskItem при помощи js
-function todoItemTpl() {
+function getListItem() {
     // Создаём элементы
     let todoListItem = document.createElement('div');
     todoListItem.className = 'todo-list__item d-flex d-flex_aic';
