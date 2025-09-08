@@ -37,6 +37,7 @@ main {
   align-items: center;
   gap: 24px;
   height: 65px;
+  justify-content: space-between;
 }
 
 .header-section__logo {
@@ -68,6 +69,13 @@ main {
   background: rgba(0, 0, 0, .08);
   border-radius: 50%;
   font-weight: 600;
+}
+
+.header-section__users {
+  gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .title {

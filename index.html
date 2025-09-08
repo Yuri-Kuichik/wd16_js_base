@@ -12,9 +12,12 @@
   <body>
     <div id="app">
       <header>
-        <div class="container header-section d-flex_jcsb">
+        <div class="container header-section">
           <image class="header-section__logo" src="./src/images/logo.png" />
-          <div class="header-section__user user-name">KD</div>
+          <div class="header-section__users">
+            <div class="header-section__user user_name" onclick="changeUserName()"></div>
+            <button onclick="changeUserData()">Изменить имя пользователя</button>
+          </div>
         </div>
       </header>
 
@@ -24,53 +27,6 @@
 
           <section class="home-page visible">
             <h2 class="tac">Home page</h2>
-
-            <div class="mb-6">
-              <button>Изменить имя пользователя</button>
-            </div>
-
-            <div class="border-section"></div>
-            
-            <!-- start calculator --> 
-            <div class="calculator">
-              <h2>Calculator</h2>
-              <input id="firstValue" type="text" value="123" class="mb-3">
-              <div class="d-flex mb-3">
-                <button class="mr-1"> + </button>
-                <button class="mr-1"> - </button>
-                <button class="mr-1"> / </button>
-                <button class="mr-1"> * </button>
-              </div>
-              <input id="secondValue" type="text" value="111" class="mb-3">
-              <h3> Result:
-                <span class="calculator__result">
-                  <!-- здесь показывать результат вычисления -->
-                </span>
-              </h3>
-            </div>
-            <!-- end calculator --> 
-
-            <div class="border-section"></div>
-
-            <!-- start todo list --> 
-            <div class="todo-list">
-              <h2>Todo list</h2>
-            </div>
-
-            <template id="todo-item">
-              <div class="todo-list__item d-flex d-flex_aic">
-                <input type="checkbox" class="todo-list__checkbox">
-                <div class="todo-list__text d-flex">Text</div>
-                <button class="todo-list__edit" onclick="editTask(event)">
-                  <img src="./src/images/edit-icon.svg" alt="">
-                </button>
-                <button class="todo-list__delete" onclick="deleteTask(event)">
-                  <img src="./src/images/delete-icon.svg" alt="">
-                </button>
-              </div>
-            </template>
-            <!-- end todo list -->
-
           </section>
         </main>
       </div>
@@ -83,6 +39,15 @@
       </footer>
     </div>
 
-    <script src="index.js"></script>
+<!-- 
+
+    <script src="02-basics/script.js">
+      //для 2 домашки
+    </script> -->
+
+    <script src="03-functions/script.js">
+      // 3 дз
+    </script>
+
   </body>
 </html>
