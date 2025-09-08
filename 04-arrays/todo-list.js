@@ -22,6 +22,15 @@ function renderTodoList() {
 
         // Создаём html шаблон будущего элемента списка задач.
         let todoItem = getListItem();
+        todoItem.addEventListener('click', function (event) {
+            event.stopPropagation();
+            const button = event.target.closest('button');
+            if (button.dataset.delete) {
+                deleteTask(event, id);
+            } else if (button.dataset.edit) {
+                editTask(event, id);
+            }
+        })
 
         // Находим чекбокс и ставим активен ли он в зависимости от статуса задачи (completed)
         let currentCheckbox = todoItem.querySelector('.todo-list__checkbox');
@@ -46,16 +55,15 @@ function renderTodoList() {
 
         todoItem
             .querySelector('.todo-list__edit')
-            .setAttribute('onclick', 'editTask(event,' + id + ')')
+            .dataset.edit = id;
 
         // Находим нужный тег и добавляем в событие deleteTask() id задачи.
         todoItem
             .querySelector('.todo-list__delete')
-            .setAttribute('onclick', 'deleteTask(event,' + id + ')')
+            .dataset.delete = id;
 
         // Вставляем склонированный контент в контейнер
         todoItemsContainer.appendChild(todoItem);
-
     });
 }
 
@@ -91,8 +99,6 @@ function editTask(e, id) {
 * должна получить id = 4. Но, так как id зависит от текущей длины массива, то новая задача получит id = 3.
 */
 function deleteTask(e, id) {
-    console.log(e.target.parentElement)
-
     const removingTaskName = e
         .target
         .closest('.todo-list__item')
