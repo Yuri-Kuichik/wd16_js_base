@@ -1,7 +1,6 @@
 const arrSections = document.querySelectorAll('section')
 const headerNav = document.querySelector('nav.navigation');
 
-highlightNewActiveTab(document.querySelector('#home-page'))
 headerNav.addEventListener('click', function (event) {
     event.stopPropagation();
     switchTab(event);
@@ -38,16 +37,14 @@ function findVisiblePage() {
 
 function removeActiveTab() {
     const currentActiveTab = findCurrentActiveTab();
-    currentActiveTab.classList.remove('active');
+    currentActiveTab?.classList.remove('active');
 }
 
 function findCurrentActiveTab() {
-    let tabsArr = Array.from(headerNav.querySelectorAll('.link-page'));
-    return tabsArr.find(function (tab) {
-        return tab.classList.contains('active');
-    });
+    const tabsArr = Array.from(headerNav.querySelectorAll('.link-page'));
+    return tabsArr.find((tab) => tab.classList.contains('active'));
 }
 
 function highlightNewActiveTab(element) {
-    element.classList.add('active');
+    element?.classList.add('active');
 }
