@@ -15,9 +15,10 @@
         <div class="container header-section d-flex_jcsb">
           <image class="header-section__logo" src="./src/images/logo.png" />
           <nav class="navigation">
-            <span id="home-page" class="link-page">Change name</span>
+            <span id="home-page" class="link-page active">Change name</span>
             <span id="calculator-page" class="link-page">Calculator</span>
             <span id="todo-list-page" class="link-page">Todo list</span>
+            <span id="post-list-page" class="link-page">Post list</span>
           </nav>
           <div class="header-section__user user-name">KD</div>
         </div>
@@ -77,6 +78,15 @@
           </section>
           <!-- end todo list -->
 
+          <!-- start post list -->
+           <section class="post-list-page hidden">
+            <div class="container post-list-wrap">
+              <h2>Post list</h2>
+            </div>
+           </section>
+
+          <!-- end post list -->
+
         </main>
       </div>
 
@@ -88,7 +98,7 @@
       </footer>
     </div>
 
-    <script src="index.js"></script>
+    <script async src="index.js"></script>
 <!--    <script src="02-basics/script.js"></script>-->
     <script src="03-functions/index.js"></script>
     <script src="03-functions/calculator.js"></script>
