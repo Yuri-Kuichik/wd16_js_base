@@ -54,6 +54,11 @@ main {
   color: rgba(0,0,0, 0.78);
 }
 
+.navigation .active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .header-section .link-page:hover {
   cursor: pointer;
   color: rgba(0,0,0, 0.92);
