@@ -41,8 +41,10 @@ function removeActiveTab() {
 }
 
 function findCurrentActiveTab() {
-    const tabsArr = Array.from(headerNav.querySelectorAll('.link-page'));
-    return tabsArr.find((tab) => tab.classList.contains('active'));
+    const allTabs = headerNav.querySelectorAll('.link-page');
+    let tabsArr = Array.from(allTabs);
+
+    return tabsArr.find(tab => tab.classList.contains('active'));
 }
 
 function highlightNewActiveTab(element) {
