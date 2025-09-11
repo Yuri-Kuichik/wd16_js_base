@@ -221,3 +221,20 @@ input:focus-visible {
 .post-list__text {
     font-size: 18px;
 }
+
+.modal-window-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-window {
+    padding: 32px;
+    margin: 100px auto 0;
+    width: 75%;
+    background: #FFFFFF;
+    border-radius: 12px;
+}
