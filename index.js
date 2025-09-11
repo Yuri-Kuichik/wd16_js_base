@@ -37,7 +37,7 @@ function findVisiblePage() {
 
 function removeActiveTab() {
     const currentActiveTab = findCurrentActiveTab();
-    currentActiveTab.classList.remove('active');
+    currentActiveTab?.classList.remove('active');
 }
 
 function findCurrentActiveTab() {
@@ -48,5 +48,5 @@ function findCurrentActiveTab() {
 }
 
 function highlightNewActiveTab(element) {
-    element.classList.add('active');
+    element?.classList.add('active');
 }

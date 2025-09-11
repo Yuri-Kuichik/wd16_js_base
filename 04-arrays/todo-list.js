@@ -25,7 +25,6 @@ function renderTodoList() {
         todoItem.addEventListener('click', function (event) {
             event.stopPropagation();
             const button = event.target.closest('button');
-            console.log(button)
             if (button?.dataset.delete) {
                 deleteTask(event, id);
             } else if (button?.dataset.edit) {
