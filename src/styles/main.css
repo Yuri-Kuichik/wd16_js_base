@@ -189,9 +189,20 @@ input:focus-visible {
 }
 
 /* Раздел Post list */
+.post-list-wrap {
+    justify-content: space-around;
+}
+
 .post-list__item {
+    padding: 10px;
+    max-width: 33%;
     border-bottom: 2px solid black;
     margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.post-list__item:hover {
+    background: #f6f2f2;
 }
 
 .post-list__img-wrap {
@@ -211,6 +222,7 @@ input:focus-visible {
 .post-list__about {
     margin-bottom: 20px;
     font-size: 15px;
+    text-align: center;
 }
 
 .post-list__text-wrap {
@@ -220,4 +232,39 @@ input:focus-visible {
 
 .post-list__text {
     font-size: 18px;
+}
+
+.modal-window-wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-window {
+    padding: 32px;
+    margin: 100px auto 0;
+    width: 75%;
+    height: 75%;
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow-y: auto;
+}
+
+.modal-img-wrap {
+    display: flex;
+    max-height: 200px;
+    align-self: center;
+}
+
+.modal-img-wrap img {
+    object-fit: contain;
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.of-hidden {
+    overflow: hidden;
 }

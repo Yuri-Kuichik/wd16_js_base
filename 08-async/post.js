@@ -1,3 +1,7 @@
+const elPostListWrap = document.querySelector('.post-list-wrap');
+const closeModalBtn = document.querySelector('.modal-window__close');
+const modalWindow = document.querySelector('.modal-window-wrapper');
+const body = document.querySelector('body');
 let data = null
 
 async function fetchPosts() {
@@ -14,35 +18,34 @@ async function fetchPosts() {
 }
 
 function renderPostList(postsArray) {
-    const elPostListWrap = document.querySelector('.post-list-wrap')
-    postsArray.forEach(({
-        date,
-        description,
-        image,
-        text,
-        title
-    }) => {
+    postsArray.forEach(
+        ({
+             id,
+             date,
+             description,
+             image,
+             title
+         }) => {
 
-        const postItem = getPostItem();
+            const postItem = `
+                <div class="post-list__item" data-post-id="${id}">
+                    <div class="post-list__header d-flex d-flex_aic d-flex_fdc d-flex_jcfs">
+                        <h3>${title}</h3>
+                        <div class="post-list__header-date">${date}</div>
+                    </div>
+                    <div class="post-list__content d-flex d-flex_jcc">
+                        <div class="post-list__img-wrap">
+                            <img alt="Здесь могла быть ваша реклама." src="${image}">
+                        </div>
+                    </div>
+                    <div class="post-list__about">
+                        <b>О чём эта статья: </b><span class="post-list__about-text">${description}</span>
+                    </div>
+                </div>
+            `;
 
-        postItem.querySelector('h3')
-            .innerText = title;
-
-        postItem.querySelector('img')
-            .setAttribute('src', image);
-
-        postItem.querySelector('.post-list__header-date')
-            .innerText = date;
-
-        postItem.querySelector('.post-list__about-text')
-            .innerText = description;
-
-        postItem.querySelector('.post-list__text')
-            .innerText = text
-
-
-        elPostListWrap.appendChild(postItem);
-    })
+            elPostListWrap.innerHTML += postItem;
+        })
 }
 
 function sortPostsByFreshness(items) {
@@ -59,61 +62,48 @@ function sortPostsByFreshness(items) {
     })
 }
 
-// Подготовим шаблон для нашего поста.
-function getPostItem() {
-    // Создаём элементы
-    let postListItem = document.createElement('div');
-    postListItem.className = 'post-list__item';
+elPostListWrap.addEventListener('click', (event) => {
+    const postId = event.target.closest('.post-list__item')?.dataset.postId;
+    if (postId) {
+        openPost(postId);
+    }
 
-    let postListHeader = document.createElement('div');
-    postListHeader.className = 'post-list__header d-flex d-flex_jcsb d-flex_aic';
+})
 
-    let postListTitle = document.createElement('h3');
+async function openPost(id) {
+    data = await getPostById(id);
 
-    let postListDate = document.createElement('div');
-    postListDate.className = 'post-list__header-date';
+    if (data) {
+        fulfilPostModal(data);
+        openCloseModal();
+    }
+}
 
-    let postListContent = document.createElement('div');
-    postListContent.className = 'post-list__content d-flex '
+async function getPostById(id) {
+    try {
+        const response = await fetch(`https://studapi.teachmeskills.by/blog/posts/${id}`);
+        data = await response.json();
 
-    let postListImgWrap = document.createElement('div');
-    postListImgWrap.className = 'post-list__img-wrap'
+        return data;
+    } catch (error) {
+        console.log(error.message);
+    }
+}
 
-    let postListImg = document.createElement('img');
-    postListImg.alt = 'Здесь могла быть ваша реклама.';
+function fulfilPostModal(data) {
+    modalWindow.querySelector('h3').innerText = data.title;
+    modalWindow.querySelector('img').src = data.image;
+    modalWindow.querySelector('p').innerText = data.text;
+    modalWindow.querySelector('.modal-window__date').innerText = data.date;
+}
 
-    let postListTextWrap = document.createElement('div');
-    postListTextWrap.className = 'post-list__text-wrap';
+closeModalBtn.addEventListener('click', () => {
+    openCloseModal();
+})
 
-    let postListDescription = document.createElement('div');
-    postListDescription.className = 'post-list__about';
-
-    let postListDescriptionPreText = document.createElement('b');
-    postListDescriptionPreText.innerText = 'О чём эта статья: ';
-
-    let postListDescriptionText = document.createElement('span');
-    postListDescriptionText.className = 'post-list__about-text';
-
-    let postListText = document.createElement('div');
-    postListText.className = 'post-list__text';
-
-    // Формируем шаблон.
-    postListHeader.appendChild(postListTitle);
-    postListHeader.appendChild(postListDate);
-    postListItem.appendChild(postListHeader);
-
-    postListImgWrap.appendChild(postListImg);
-    postListContent.appendChild(postListImgWrap);
-
-    postListDescription.appendChild(postListDescriptionPreText);
-    postListDescription.appendChild(postListDescriptionText);
-    postListTextWrap.appendChild(postListDescription)
-    postListTextWrap.appendChild(postListText);
-    postListContent.appendChild(postListTextWrap);
-
-    postListItem.appendChild(postListContent);
-
-    return postListItem;
+function openCloseModal() {
+    modalWindow?.classList.toggle('hidden');
+    body.classList.toggle('of-hidden');
 }
 
 fetchPosts()
