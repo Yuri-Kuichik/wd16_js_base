@@ -223,6 +223,7 @@ input:focus-visible {
 }
 
 .modal-window-wrapper {
+    display: none;
     position: fixed;
     top: 0;
     right: 0;

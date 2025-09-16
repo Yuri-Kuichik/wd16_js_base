@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./src/styles/main.css">
     <link rel="stylesheet" href="./src/styles/d-flex.css">
     <link rel="stylesheet" href="./src/styles/dentins.css">
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
     <div id="app">
@@ -19,6 +21,7 @@
             <span id="calculator-page" class="link-page">Calculator</span>
             <span id="todo-list-page" class="link-page">Todo list</span>
             <span id="post-list-page" class="link-page">Post list</span>
+            <span id="vue-app-page" class="link-page">Vue app</span>
           </nav>
           <div class="header-section__user user-name">KD</div>
         </div>
@@ -87,6 +90,39 @@
 
           <!-- end post list -->
 
+          <!-- start vue app -->
+           <section id="vue-app" class="vue-app-page hidden">
+            <div class="container vue-app-wrap">
+              <h2>Vue app</h2>
+              <span>Count: {{ count }}</span>
+              <br>
+              <span>Duble count: {{ dubleCount }}</span>
+              <div class="change-name-wrapper mb-6">
+                <button @click="decreaseCount"> Decrease by one</button>
+              </div>
+              <div class="change-name-wrapper mb-6">
+                <button @click="increaseCount"> Increase by one</button>
+              </div>
+            </div>
+           </section>
+
+
+           <section id="vue-app-two" class="vue-app-page">
+            <div class="container vue-app-wrap">
+              <h2>Vue app two</h2>
+              <span>Count: {{ count }}</span>
+              <br>
+              <span>Duble count: {{ dubleCount }}</span>
+              <div class="change-name-wrapper mb-6">
+                <button @click="decreaseCount"> Decrease by one</button>
+              </div>
+              <div class="change-name-wrapper mb-6">
+                <button @click="increaseCount"> Increase by one</button>
+              </div>
+            </div>
+           </section>
+          <!-- end vue app -->
+
            <!-- start modal window -->
            <section class="modal-window-wrapper">
             <div class="modal-window">
@@ -118,5 +154,6 @@
     <script src="03-functions/calculator.js"></script>
     <script src="04-arrays/todo-list.js"></script>
     <script src="08-async/post.js"></script>
+    <script src="vue-app.js"></script>
   </body>
 </html>
